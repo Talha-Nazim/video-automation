@@ -1,0 +1,37 @@
+openapi: 3.0.0
+info:
+  title: Video Automation API
+  version: 1.0.0
+  description: API for generating scripts and creating videos
+servers:
+  - url: http://localhost:3000
+    description: Local server
+
+paths:
+  /generate-script:
+    post:
+      summary: Generate a video script using LLM
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                topic:
+                  type: string
+                  example: "History of Artificial Intelligence"
+      responses:
+        "200":
+          description: Returns a JSON script
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  script:
+                    type: object
+                    example:
+                      type: "video"
+                      title: "History of AI"
+                      description: "AI began in the 1950s..."
